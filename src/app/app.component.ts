@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FacebookService, LoginResponse, LoginOptions, UIResponse, UIParams, FBVideoComponent } from 'ngx-facebook';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
   @ViewChild(FBVideoComponent) video: FBVideoComponent;
 
   constructor(
-    private fb: FacebookService
+    private fb: FacebookService,
+    private router: Router
   ) {
 
     console.log('Initializing Facebook');
@@ -120,6 +122,9 @@ export class AppComponent {
   }
 
 
+  navigateToNewRoute() {
+    this.router.navigate(['/new-route']);
+  }
 
   /**
    * This is a convenience method for the sake of this example project.

@@ -8,21 +8,28 @@ import { AppComponent } from './app.component';
 
 import { FacebookModule } from 'ngx-facebook';
 
+import { NewRouteComponent } from './new-route/new-route.component';
+
+
 const routes: Routes = [
-  path: 'new-route', component: EditReadingResourcesComponent
-  {path: '', redirectTo: '/end-user/readings/today', pathMatch: 'full'},
-  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule' }
+  {path: 'new-route', component: NewRouteComponent},
+  { path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewRouteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
 })
